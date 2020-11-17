@@ -16,7 +16,7 @@
 - has_many :items
 - has_many :records
 
-## item テーブル
+## items テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
