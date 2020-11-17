@@ -22,4 +22,8 @@ class User < ApplicationRecord
   # VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[\w-]+\z/i.freeze
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]+\z/i, message: 'Include both letters and numbers' }
   validates :password, presence: true
+
+  # アソシエーション
+  has_many :items
+  # has_many :records
 end
