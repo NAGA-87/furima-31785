@@ -68,3 +68,6 @@ end
 gem 'devise' # ユーザー管理機能を簡単に実装するためのgem
 
 gem "pry-rails"
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
