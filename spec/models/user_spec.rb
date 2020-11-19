@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
   describe 'ユーザー新規登録' do
     before do
       @user = FactoryBot.build(:user)
     end
-  
-    it "入力必須項目が存在すれば登録できること" do
+
+    it '入力必須項目が存在すれば登録できること' do
       expect(@user).to be_valid
     end
     it 'emailが空だと登録できない' do
@@ -67,7 +66,7 @@ RSpec.describe User, type: :model do
     it 'last_nameが全角でないと登録できない' do
       @user.last_name = 'aaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name Full-width characters")
+      expect(@user.errors.full_messages).to include('Last name Full-width characters')
     end
     it 'first_nameが空だと登録できない' do
       @user.first_name = nil
@@ -77,7 +76,7 @@ RSpec.describe User, type: :model do
     it 'first_nameが全角でないと登録できない' do
       @user.first_name = 'aaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name Full-width characters")
+      expect(@user.errors.full_messages).to include('First name Full-width characters')
     end
     it 'last_name_kanaが空だと登録できない' do
       @user.last_name_kana = nil
@@ -87,7 +86,7 @@ RSpec.describe User, type: :model do
     it 'last_name_kanaが全角でないと登録できない' do
       @user.last_name_kana = 'aaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name kana Full-width katakana characters")
+      expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
     end
     it 'first_name_kanaが空だと登録できない' do
       @user.first_name_kana = nil
@@ -97,7 +96,7 @@ RSpec.describe User, type: :model do
     it 'first_name_kanaが全角でないと登録できない' do
       @user.first_name_kana = 'aaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include("First name kana Full-width katakana characters")
+      expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
     end
   end
 end
