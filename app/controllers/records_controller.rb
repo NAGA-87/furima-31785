@@ -1,6 +1,8 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_item, only: [:index, :create]
+  before_action :move_to_show_after_sold_out, only: [:index, :create]
+  before_action :move_to_index, only: [:index, :create]
 
   def index
     @record = FormRecord.new
@@ -34,5 +36,13 @@ class RecordsController < ApplicationController
 
   def set_user_item
     @item = Item.find(params[:item_id])
+  end
+
+  def move_to_show_after_sold_out
+    redirect_to root_path unless @item.record == nil
+  end
+
+  def move_to_index                                            #ログインユーザーと商品出品者が同一の場合商品購入画面に入れない
+    redirect_to root_path unless current_user != @item.user
   end
 end
