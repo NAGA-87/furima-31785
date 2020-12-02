@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index                                            #ログインユーザーと商品出品者が同一でない場合トップページへ遷移する
-    redirect_to root_path unless current_user == @item.user
+    redirect_to root_path unless current_user == @item.user && @item.record == nil
   end
+
 end
